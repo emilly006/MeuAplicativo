@@ -4,7 +4,7 @@
     "slug": "MeuAplicativo",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/icon.png",
     "scheme": "meuaplicativo",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
