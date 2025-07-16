@@ -1,7 +1,8 @@
+import { AntDesign } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const EsqueceuASenha= () => {
+const EsqueceuASenha = () => {
   const router = useRouter();
 
   return (
@@ -10,15 +11,17 @@ const EsqueceuASenha= () => {
         style={styles.exitIcon}
         onPress={() => router.push('/')}
       >
-       <AntDesign name="arrowleft" size={28} color="#fff" />
-  </TouchableOpacity>
-  <Text style={styles.title}>Encontre sua Conta</Text>
-     <TouchableOpacity
-       style={styles.button}
-       onPress={() => router.push('/')}
-            >
-       <Text style={styles.buttonText}>Continuar</Text>
-        </TouchableOpacity>
+        <AntDesign name="arrowleft" size={28} color="#fff" />
+      </TouchableOpacity>
+
+      <Text style={styles.title}>Encontre sua Conta</Text>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => router.push('/')}
+      >
+        <Text style={styles.buttonText}>Continuar</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -35,32 +38,25 @@ const styles = StyleSheet.create({
   exitIcon: {
     position: 'absolute',
     top: 50,
-    right: 20,
+    left: 20,
     zIndex: 1,
   },
   title: {
     color: '#fff',
     fontSize: 28,
     fontWeight: 'bold',
+    marginBottom: 40,
   },
-  tabBar: {
-    position: 'absolute',
-    bottom: 35,
-    width: '100%',
+  button: {
     backgroundColor: '#7B1790',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingVertical: 1,
-    borderTopWidth: 1,
-    borderColor: '#fff',
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 8,
+    marginTop: 20,
   },
-  tabButton: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  tabText: {
+  buttonText: {
     color: '#fff',
-    fontSize: 12,
-    marginTop: 4,
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });

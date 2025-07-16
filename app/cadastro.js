@@ -49,7 +49,7 @@ export default function Cadastro() {
         Já tem conta?{' '}
         <Text
           style={styles.underline}
-          onPress={() => router.push('/inicio')} >
+          onPress={() => router.push('/')} >
           Entrar
         </Text>
       </Text>
