@@ -1,24 +1,29 @@
-import React from 'react';
+import { useRouter } from 'expo-router';
 import {
-    Image,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
 } from 'react-native';
 
-const LotsOfStyles = () => {
+export default function Cadastro() {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
-        <Image source={require('../assets/onda-1.png')} 
-      styles={styles.logo}     
-      />
       <Text style={styles.title}>Tela de Cadastro</Text>
+
       <TextInput
         style={styles.input}
-        placeholder="Login"
+        placeholder="Nome"
         placeholderTextColor="#fff"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        placeholderTextColor="#fff"
+        keyboardType="email-address"
       />
       <TextInput
         style={styles.input}
@@ -26,34 +31,31 @@ const LotsOfStyles = () => {
         placeholderTextColor="#fff"
         secureTextEntry
       />
-         <TextInput
+      <TextInput
         style={styles.input}
-        placeholder="Phone"
+        placeholder="Confirmar Senha"
         placeholderTextColor="#fff"
         secureTextEntry
       />
-         <TextInput
-        style={styles.input}
-        placeholder="Data de Nasc."
-        placeholderTextColor="#fff"
-        secureTextEntry
-      />
-      <View style={styles.grupo}>
-        <View style={styles.socialContainer}>
-        <Image source={require('../assets/google.png')} style={styles.socialIcon} />
-        <Image source={require('../assets/facebook.png')} style={styles.socialIcon} />
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>CADASTRAR</Text>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => router.push('/inicio')} // Navega para tela inicial após cadastro
+      >
+        <Text style={styles.buttonText}>Cadastrar</Text>
       </TouchableOpacity>
-     </View>
-      </View>
 
       <Text style={styles.link}>
-      Já tem uma conta? <Text style={styles.underline}>Entrar</Text>
+        Já tem conta?{' '}
+        <Text
+          style={styles.underline}
+          onPress={() => router.push('/login')} >
+          Entrar
+        </Text>
       </Text>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -86,11 +88,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginBottom: 30,
   },
-  grupo:{
-flexDirection: 'row',
-  justifyContent: 'center',
-  alignItems: 'center',
-  },
   buttonText: {
     color: '#fff',
     fontSize: 18,
@@ -105,23 +102,9 @@ flexDirection: 'row',
     textDecorationLine: 'underline',
   },
   logo: {
-  width: 100,
-  height: 100,
-  resizeMode: 'contain',
-  marginBottom: 20,
-},
-socialContainer: {
-  flexDirection: 'row',
-  justifyContent: 'center',
-  alignItems: 'center',
-  marginBottom: 20,
-},
-socialIcon: {
-  width: 27,
-  height: 27,
-  marginHorizontal: 5,
-},
+    width: 100,
+    height: 100,
+    resizeMode: 'contain',
+    marginBottom: 20,
+  },
 });
-
-export default LotsOfStyles;
-

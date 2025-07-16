@@ -1,19 +1,19 @@
-import React from 'react';
+import { useRouter } from 'expo-router';
 import {
-    Image,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  Image,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 
 const LotsOfStyles = () => {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
-        <Image source={require('../assets/onda-1.png')} 
-      styles={styles.logo}     
-      />
+     
       <Text style={styles.title}>Tela de Login</Text>
       <TextInput
         style={styles.input}
@@ -29,18 +29,31 @@ const LotsOfStyles = () => {
       <View style={styles.socialContainer}>
         <Image source={require('../assets/google.png')} style={styles.socialIcon} />
         <Image source={require('../assets/facebook.png')} style={styles.socialIcon} />
-      </View> 
-      <TouchableOpacity style={styles.button}>
+      </View>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => router.push('/inicio')}
+      >
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
 
       <Text style={styles.link}>
-        Não tem conta? <Text style={styles.underline}>CADASTRAR</Text>
+        Não tem conta?{' '}
+        <Text
+          style={styles.underline}
+          onPress={() => router.push('/cadastro')} // Navega para cadastro
+        >
+          CADASTRAR
+        </Text>
       </Text>
-      <Text style={[styles.link, styles.underline]}>Esqueceu a senha?</Text>
-      <Image source={require('../assets/onda-2.png')}
-      styles={styles.logo}     
-      />
+
+      <Text
+        style={[styles.link, styles.underline]}
+        onPress={() => router.push('/esqueceu_a_senha')} // Navega para esquecer senha
+      >
+        Esqueceu a senha?
+      </Text>
+
     </View>
   );
 };
@@ -90,23 +103,22 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
   },
   logo: {
-  width: 100,
-  height: 100,
-  resizeMode: 'contain',
-  marginBottom: 20,
-},
-socialContainer: {
-  flexDirection: 'row',
-  justifyContent: 'center',
-  alignItems: 'center',
-  marginBottom: 20,
-},
-socialIcon: {
-  width: 27,
-  height: 27,
-  marginHorizontal: 5,
-},
+    width: 100,
+    height: 100,
+    resizeMode: 'contain',
+    marginBottom: 20,
+  },
+  socialContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  socialIcon: {
+    width: 27,
+    height: 27,
+    marginHorizontal: 5,
+  },
 });
 
 export default LotsOfStyles;
-
