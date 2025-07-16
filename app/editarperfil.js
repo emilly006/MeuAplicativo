@@ -2,19 +2,36 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const Inicio = () => {
+const EditarPerfil= () => {
   const router = useRouter();
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.exitIcon}
-        onPress={() => router.push('/')}
+        onPress={() => router.push('/teladeperfil')}
       >
         <Ionicons name="log-out-outline" size={28} color="#fff" />
       </TouchableOpacity>
-      
-      <Text style={styles.title}>Tela de Início</Text>
+      <Text style={styles.title}>Editar Perfil</Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => router.push('/teladeperfil')}
+      >
+        <Text style={styles.buttonText}>Cancelar</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+        Alert.alert('Sucesso', 'Perfil salvo com sucesso!');
+        router.push('/teladeperfil');
+       }}
+      >
+      <Text style={styles.buttonText}>Salvar</Text>
+      </TouchableOpacity>
+
+
 
       <View style={styles.tabBar}>
 
@@ -54,7 +71,7 @@ const Inicio = () => {
   );
 };
 
-export default Inicio;
+export default EditarPerfil;
 
 const styles = StyleSheet.create({
   container: {
@@ -84,6 +101,20 @@ const styles = StyleSheet.create({
     paddingVertical: 1,
     borderTopWidth: 1,
     borderColor: '#fff',
+  },
+  button: {
+    borderWidth: 1,
+    borderColor: '#fff',
+    paddingVertical: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingHorizontal: 40,
+    borderRadius: 10,
+    marginBottom: 30,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
   },
   tabButton: {
     alignItems: 'center',

@@ -2,19 +2,19 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const Inicio = () => {
+const Inscricao= () => {
   const router = useRouter();
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.exitIcon}
-        onPress={() => router.push('/')}
+        onPress={() => router.push('/inicio')}
       >
         <Ionicons name="log-out-outline" size={28} color="#fff" />
       </TouchableOpacity>
       
-      <Text style={styles.title}>Tela de Início</Text>
+      <Text style={styles.title}>Tela de Inscrição</Text>
 
       <View style={styles.tabBar}>
 
@@ -54,7 +54,7 @@ const Inicio = () => {
   );
 };
 
-export default Inicio;
+export default Inscricao;
 
 const styles = StyleSheet.create({
   container: {

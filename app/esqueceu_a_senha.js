@@ -1,12 +1,12 @@
 import React from 'react';
 import {
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 
-const LotsOfStyles = () => {
+const EsqueceuSenha = () => {
   return (
     <View style={styles.container}>
      <Text style={styles.title}>Tela Esqueceu a senha</Text>
@@ -16,14 +16,14 @@ const LotsOfStyles = () => {
     </View>
   );
 };
+export default EsqueceuSenha;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#black',
+    backgroundColr: '#9C1E94',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
   }
 })
-export default LotsOfStyles;
 

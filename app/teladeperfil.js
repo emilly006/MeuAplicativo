@@ -1,4 +1,4 @@
-import { Ionicons } from '@expo/vector-icons';
+import { AntDesign, Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
@@ -7,14 +7,23 @@ const Inicio = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        style={styles.exitIcon}
-        onPress={() => router.push('/')}
-      >
-        <Ionicons name="log-out-outline" size={28} color="#fff" />
-      </TouchableOpacity>
+     <View style={styles.topIconsContainer}>
+  <TouchableOpacity
+    style={styles.iconButton}
+    onPress={() => router.push('/inicio')}
+  >
+    <AntDesign name="arrowleft" size={28} color="#fff" />
+  </TouchableOpacity>
+
+  <TouchableOpacity
+    style={styles.iconButton}
+    onPress={() => router.push('/editarperfil')}
+  >
+    <Ionicons name="settings-outline" size={28} color="#fff" />
+  </TouchableOpacity>
+</View>
       
-      <Text style={styles.title}>Tela de Início</Text>
+      <Text style={styles.title}>Perfil</Text>
 
       <View style={styles.tabBar}>
 
@@ -63,6 +72,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  topIconsContainer: {
+  position: 'absolute',
+  top: 50,
+  left: 0,
+  right: 0,
+  paddingHorizontal: 20,
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  zIndex: 1,
+},
+iconButton: {
+
+},
+
   exitIcon: {
     position: 'absolute',
     top: 50,
