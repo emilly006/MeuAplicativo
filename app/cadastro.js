@@ -40,7 +40,7 @@ export default function Cadastro() {
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => router.push('/inicio')} // Navega para tela inicial após cadastro
+        onPress={() => router.push('/inicio')}
       >
         <Text style={styles.buttonText}>Cadastrar</Text>
       </TouchableOpacity>
@@ -49,7 +49,7 @@ export default function Cadastro() {
         Já tem conta?{' '}
         <Text
           style={styles.underline}
-          onPress={() => router.push('/login')} >
+          onPress={() => router.push('/inicio')} >
           Entrar
         </Text>
       </Text>
