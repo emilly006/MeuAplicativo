@@ -1,6 +1,6 @@
 import { AntDesign } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const EsqueceuASenha = () => {
   const router = useRouter();
@@ -18,11 +18,14 @@ const EsqueceuASenha = () => {
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => router.push('/')}
-      >
-        <Text style={styles.buttonText}>Continuar</Text>
-      </TouchableOpacity>
-    </View>
+        onPress={() => {
+         Alert.alert('Sucesso', 'Senha trocada');
+         router.push('/');
+             }}
+            >
+            <Text style={styles.buttonText}>Salvar</Text>
+            </TouchableOpacity>
+            </View>
   );
 };
 

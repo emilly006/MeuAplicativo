@@ -36,10 +36,10 @@ const Inicio = () => {
 
         <TouchableOpacity
           style={styles.tabButton}
-          onPress={() => router.push('/teladojogo')}
+          onPress={() => router.push('/competicao')}
         >
           <Ionicons name="game-controller-outline" size={24} color="#fff" />
-          <Text style={styles.tabText}>Jogos</Text>
+          <Text style={styles.tabText}>Competição</Text>
         </TouchableOpacity>
 
         <TouchableOpacity

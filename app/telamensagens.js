@@ -2,7 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-export default function TelaMensagens() {
+const TelaMensagens= () => {
   const router = useRouter();
 
   return (
@@ -20,20 +20,12 @@ export default function TelaMensagens() {
             <Text style={styles.cardTitle}>Thomas</Text>
             <Text style={styles.cardMessage}>Não sei, será que a Pain ganha hoje?</Text>
           </View>
-          <View style={styles.rightInfo}>
-            <Text style={styles.counter}>7</Text>
-            <Text style={styles.time}>7:10</Text>
-          </View>
-        </TouchableOpacity>
+          </TouchableOpacity>
 
         <TouchableOpacity style={styles.card} onPress={() => router.push('/mensagem')}>
           <View>
             <Text style={styles.cardTitle}>Lucas Silva</Text>
             <Text style={styles.cardMessage}>vai ser tranquilo.</Text>
-          </View>
-          <View style={styles.rightInfo}>
-            <Text style={styles.counter}>10</Text>
-            <Text style={styles.time}>10:50</Text>
           </View>
         </TouchableOpacity>
 
@@ -42,34 +34,46 @@ export default function TelaMensagens() {
             <Text style={styles.cardTitle}>Léo</Text>
             <Text style={styles.cardMessage}>VRK ganha suave</Text>
           </View>
-          <View style={styles.rightInfo}>
-            <Text style={styles.counter}>9</Text>
-            <Text style={styles.time}>9:30</Text>
-          </View>
         </TouchableOpacity>
       </View>
-
-      {/* Barra de navegação inferior */}
       <View style={styles.tabBar}>
-        <TouchableOpacity style={styles.tabButton} onPress={() => router.push('/inicio')}>
-          <Ionicons name="home-outline" size={24} color="#fff" />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.tabButton} onPress={() => router.push('/inscricao')}>
+
+        <TouchableOpacity
+          style={styles.tabButton}
+          onPress={() => router.push('/inscricao')}
+        >
           <Ionicons name="person-add-outline" size={24} color="#fff" />
+          <Text style={styles.tabText}>Inscrição</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.tabButton} onPress={() => router.push('/teladojogo')}>
-          <Ionicons name="game-controller-outline" size={24} color="#fff" />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.tabButton} onPress={() => router.push('/teladeperfil')}>
+
+        <TouchableOpacity
+          style={styles.tabButton}
+          onPress={() => router.push('/teladeperfil')}
+        >
           <Ionicons name="person-circle-outline" size={24} color="#fff" />
+          <Text style={styles.tabText}>Perfil</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.tabButton} onPress={() => router.push('/telamensagens')}>
+
+        <TouchableOpacity
+          style={styles.tabButton}
+          onPress={() => router.push('/competicao')}
+        >
+          <Ionicons name="game-controller-outline" size={24} color="#fff" />
+          <Text style={styles.tabText}>Competição</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.tabButton}
+          onPress={() => router.push('/telamensagens')}
+        >
           <Ionicons name="chatbubble-ellipses-outline" size={24} color="#fff" />
+          <Text style={styles.tabText}>Mensagens</Text>
         </TouchableOpacity>
       </View>
     </View>
   );
-}
+};
+export default TelaMensagens;
 
 const styles = StyleSheet.create({
   container: {
@@ -90,23 +94,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 10,
-  },
-  filterButtons: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginBottom: 20,
-  },
-  filterButton: {
-    borderWidth: 1,
-    borderColor: '#fff',
-    paddingVertical: 5,
-    paddingHorizontal: 15,
-    borderRadius: 12,
-    marginHorizontal: 5,
-  },
-  filterText: {
-    color: '#fff',
-    fontSize: 14,
   },
   cardsArea: {
     flex: 1,
@@ -129,10 +116,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     marginTop: 5,
   },
-  rightInfo: {
-    alignItems: 'flex-end',
-    justifyContent: 'space-between',
-  },
   counter: {
     backgroundColor: '#9C1E94',
     color: '#fff',
@@ -141,23 +124,24 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginBottom: 5,
   },
-  time: {
-    color: '#fff',
-    fontSize: 12,
-  },
   tabBar: {
     position: 'absolute',
-    bottom: 20,
+    bottom: 35,
     width: '100%',
     backgroundColor: '#7B1790',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    paddingVertical: 10,
+    paddingVertical: 1,
     borderTopWidth: 1,
     borderColor: '#fff',
   },
   tabButton: {
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  tabText: {
+    color: '#fff',
+    fontSize: 12,
+    marginTop: 4,
   },
 });

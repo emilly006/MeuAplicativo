@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const EditarPerfil= () => {
   const router = useRouter();
@@ -53,7 +53,7 @@ const EditarPerfil= () => {
 
         <TouchableOpacity
           style={styles.tabButton}
-          onPress={() => router.push('/teladojogo')}
+          onPress={() => router.push('/competicao')}
         >
           <Ionicons name="game-controller-outline" size={24} color="#fff" />
           <Text style={styles.tabText}>Jogos</Text>
