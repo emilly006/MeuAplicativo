@@ -1,4 +1,6 @@
 import { useRouter } from 'expo-router';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,10 +8,26 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
-
+import { auth } from '../firebaseConfig';
 export default function Cadastro() {
   const router = useRouter();
 
+  const [newEmail, setNewEmail] = useState('')
+  const [newSenha, setNewSenha] = useState('')
+  
+  const handleCadastro = async () => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword (auth, newEmail, newSenha);
+      // Signed up 
+      const user = userCredential.user;
+      console.log(user);
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error(errorCode);
+      console.error(errorMessage);
+    }    
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tela de Cadastro</Text>
@@ -24,12 +42,14 @@ export default function Cadastro() {
         placeholder="Email"
         placeholderTextColor="#fff"
         keyboardType="email-address"
+        value={newEmail} onChangeText={a => setNewEmail(a)} 
       />
       <TextInput
         style={styles.input}
         placeholder="Senha"
         placeholderTextColor="#fff"
         secureTextEntry
+        value={newSenha} onChangeText={a => setNewSenha(a)} 
       />
       <TextInput
         style={styles.input}
@@ -40,7 +60,7 @@ export default function Cadastro() {
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => router.push('/inicio')}
+        onPress={handleCadastro}
       >
         <Text style={styles.buttonText}>Cadastrar</Text>
       </TouchableOpacity>
