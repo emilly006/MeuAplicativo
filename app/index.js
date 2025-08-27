@@ -1,4 +1,6 @@
 import { useRouter } from 'expo-router';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from 'react';
 import {
   Image,
   StyleSheet,
@@ -8,8 +10,26 @@ import {
   View,
 } from 'react-native';
 
+import { auth } from '../firebaseConfig';
+
 const LotsOfStyles = () => {
   const router = useRouter();
+  const [email, setEmail] = useState('egtm1@aluno.ifal.edu.br')
+  const [senha, setSenha] = useState('123456')
+
+  const handleLogin = async () => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, senha);
+      // Signed up 
+      const user = userCredential.user;
+      console.log(user);
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error(errorCode);
+      console.error(errorMessage);
+    }    
+  }
 
   return (
     <View style={styles.container}>
@@ -32,7 +52,7 @@ const LotsOfStyles = () => {
       </View>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => router.push('/inicio')}
+        onPress={handleLogin}
       >
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
